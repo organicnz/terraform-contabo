@@ -54,7 +54,8 @@ variable "product_id" {
   validation {
     condition = contains([
       "VPS-1-SSD-10", "VPS-2-SSD-20", "VPS-3-SSD-40",
-      "VPS-4-SSD-60", "VPS-5-SSD-100", "VPS-6-SSD-200"
+      "VPS-4-SSD-60", "VPS-5-SSD-100", "VPS-6-SSD-200",
+      "V92"  # VPS 10 SSD - 3 vCPU, 8GB RAM, 150GB SSD
     ], var.product_id)
     error_message = "Product ID must be a valid Contabo VPS product ID."
   }

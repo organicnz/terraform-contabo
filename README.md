@@ -77,7 +77,7 @@ terraform apply
 
 ### Core Components
 
-- **VPS Instance**: Primary compute resource with Ubuntu 22.04
+- **VPS Instance**: Primary compute resource with Ubuntu 24.04
 - **Security Group**: Firewall rules for SSH, HTTP, HTTPS, and custom ports
 - **Object Storage**: S3-compatible storage for backups (optional)
 - **Private Network**: Isolated network for secure communication (optional)

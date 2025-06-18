@@ -22,18 +22,22 @@ output "instance_ip_config" {
 
 output "instance_public_ips" {
   description = "Public IP addresses of the instance"
-  value = [
-    for ip in contabo_instance.main.ip_config : ip.v4.ip
+  value = flatten([
+    for ip in contabo_instance.main.ip_config : [
+      for v4 in ip.v4 : v4.ip
+    ]
     if ip.v4 != null
-  ]
+  ])
 }
 
 output "instance_ipv6_addresses" {
   description = "IPv6 addresses of the instance"
-  value = [
-    for ip in contabo_instance.main.ip_config : ip.v6.ip
+  value = flatten([
+    for ip in contabo_instance.main.ip_config : [
+      for v6 in ip.v6 : v6.ip
+    ]
     if ip.v6 != null
-  ]
+  ])
 }
 
 # Network Outputs
@@ -99,8 +103,10 @@ output "resource_summary" {
 # Connection Information
 output "ssh_connection_commands" {
   description = "SSH connection commands for the instance"
-  value = [
-    for ip in contabo_instance.main.ip_config : "ssh ${var.admin_user}@${ip.v4.ip}"
+  value = flatten([
+    for ip in contabo_instance.main.ip_config : [
+      for v4 in ip.v4 : "ssh ${var.admin_user}@${v4.ip}"
+    ]
     if ip.v4 != null
-  ]
+  ])
 } 

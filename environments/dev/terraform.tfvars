@@ -1,7 +1,7 @@
 # Development Environment Configuration
 
 # Instance Configuration
-instance_name = "dev-contabo-server"
+instance_name = "vps"
 hostname      = "dev-terraform-contabo"
 product_id    = "VPS-1-SSD-10"  # Smaller instance for dev
 region        = "EU"
