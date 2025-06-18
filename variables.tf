@@ -27,7 +27,7 @@ variable "contabo_password" {
 variable "instance_name" {
   description = "Display name for the Contabo instance"
   type        = string
-  default     = "terraform-contabo-instance"
+  default     = "vps"
 
   validation {
     condition     = length(var.instance_name) > 0 && length(var.instance_name) <= 255

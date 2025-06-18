@@ -6,7 +6,7 @@ contabo_user          = "your-email@example.com"  # Your API User (usually your 
 contabo_password      = "your-api-password-here"  # Your API Password (NOT your login password)
 
 # Instance Configuration for Cloud VPS
-instance_name = "my-cloud-vps"
+instance_name = "vps"
 product_id    = "VPS-2-SSD-20"  # VPS 10 equivalent - 3 vCPU, 8GB RAM, 150GB SSD
 region        = "EU"  # Available: EU, US-central, US-east, US-west, SIN
 
@@ -27,7 +27,7 @@ add_ons     = []     # Additional add-ons for the instance
 
 tags = {
   Environment = "dev"
-  Project     = "my-terraform-project"
+  Project     = "vps"
   ManagedBy   = "terraform"
   Owner       = "your-name"
 }
