@@ -23,7 +23,7 @@ provider "contabo" {
 
 # Data source to get available images
 data "contabo_image" "ubuntu" {
-  id = "afecbb85-e2fc-46f0-9684-b46b1faf00bb" # Ubuntu 22.04 LTS image ID
+  id = "b25c7bb5-4a2c-45ab-8cdb-4c4fcca5ce5e" # Ubuntu 24.04 LTS image ID
 }
 
 # Create a VPS instance

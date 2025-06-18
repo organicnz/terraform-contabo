@@ -79,4 +79,8 @@ id_ed25519*
 *.rar
 
 # Documentation build files
-docs/_build/ 
+docs/_build/
+
+# History files (may contain sensitive data)
+.history/
+*.history 

@@ -13,9 +13,10 @@ LOG_FILE="/var/log/terraform-init.log"
 exec > >(tee -a "$LOG_FILE")
 exec 2>&1
 
-echo "=== Terraform Contabo VPS Setup Started ==="
+echo "=== Terraform Contabo Cloud VPS 10 Setup Started ==="
 echo "Date: $(date)"
 echo "Admin User: $ADMIN_USER"
+echo "OS: Ubuntu 24.04 LTS"
 
 # Update system packages
 echo "Updating system packages..."
