@@ -74,6 +74,13 @@ if [ "$ADMIN_USER" != "root" ] && ! id "$ADMIN_USER" &>/dev/null; then
     chmod 700 "/home/$ADMIN_USER/.ssh"
 fi
 
+# Add SSH public key for key-based authentication
+echo "Adding SSH public key for $ADMIN_USER..."
+mkdir -p "/home/$ADMIN_USER/.ssh"
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCb7T6hz3sH+wynfqhiTo8D3FzW0UR+aBpQna8u72b/vX4T0PV6Aii0/r4YlNGCf+l8wECs1kn2Z+OxsBHL2t5RS8H5l6YXNPDg5ciurwp4JlKbstxA90DMF8JKG7pbiNYpoqbIOP944rWzHeUNYTREdqWy8ghjPb7AKh+cDQPRGrgRUkoAg/Oy3fOI45WkT5hHoUARLEDEcYWto3ImSgts7OaJm8FmkZWKnoxGp5SqKeiIdvOGDEvJEJzK+fmRFYaytbNDesYZaVGhcnc30xl33OzyCp4OU738mKCea0KY0Vcos/tJjG+I8yT6n3KQl4KyETGY3T8wmmYJfejBJioMOqaCRuG6X4Rn5/SMdQ7fOECkvRzMrb8BbxzJYLUHKWb+Vk8WW5AWorbXdyrvV5yYTySthhhsuaj12fLp+SFTqbP8A5+xe2ijAcrgWi8VLhrx7aU/Wq2XTNJEm4lOq3W9OEIL5ncqfcYZOlb2MQa3c7axBcDF3JWs+irmk3ymi1E=" >> "/home/$ADMIN_USER/.ssh/authorized_keys"
+chown "$ADMIN_USER:$ADMIN_USER" "/home/$ADMIN_USER/.ssh/authorized_keys"
+chmod 600 "/home/$ADMIN_USER/.ssh/authorized_keys"
+
 # Install Docker (optional but commonly needed)
 echo "Installing Docker..."
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
