@@ -105,8 +105,13 @@ output "ssh_connection_commands" {
   description = "SSH connection commands for the instance"
   value = flatten([
     for ip in contabo_instance.main.ip_config : [
-      for v4 in ip.v4 : "ssh ${var.admin_user}@${v4.ip}"
+      for v4 in ip.v4 : "ssh -i ${var.ssh_private_key_path} ${var.admin_user}@${v4.ip}"
     ]
     if ip.v4 != null
   ])
+}
+
+output "ssh_key_path" {
+  description = "Path to the SSH private key used for authentication"
+  value       = var.ssh_private_key_path
 } 

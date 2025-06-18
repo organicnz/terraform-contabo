@@ -12,6 +12,7 @@ region        = "EU"  # Available: EU, US-central, US-east, US-west, SIN
 
 # SSH Configuration  
 ssh_keys       = []  # Add SSH key IDs if you have them uploaded to Contabo
+ssh_private_key_path = "~/.ssh/your_key.pem"  # Path to your private SSH key file
 admin_user     = "ubuntu"
 ssh_allowed_ips = "0.0.0.0/0"  # SECURITY: Restrict this to your IP for better security
 

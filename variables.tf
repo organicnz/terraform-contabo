@@ -80,6 +80,17 @@ variable "ssh_keys" {
   default     = []
 }
 
+variable "ssh_private_key_path" {
+  description = "Path to the private SSH key file for connecting to the instance"
+  type        = string
+  default     = "~/.ssh/azure_id_rsa.pem"
+  
+  validation {
+    condition     = can(regex("^[~./].*\\.(pem|key|rsa)$", var.ssh_private_key_path))
+    error_message = "SSH private key path must be a valid path ending with .pem, .key, or .rsa"
+  }
+}
+
 variable "admin_user" {
   description = "Admin username for the instance"
   type        = string
